@@ -6,17 +6,6 @@ matrix:
     - compiler: gcc
       os: linux
       dist: xenial
-    - compiler: clang
-      os: linux
-      dist: xenial
-    - compiler: gcc
-      os: linux
-      dist: bionic
-    - compiler: clang
-      os: linux
-      dist: bionic
-    - compiler: coverity
-      os: linux
       env:
         - COVERITY_SCAN_PROJECT_NAME="$TRAVIS_REPO_SLUG"
         - COVERITY_SCAN_BRANCH_PATTERN="master"
@@ -111,6 +100,9 @@ script:
       v ${econf} || { cat config.log ; exit 1 ; }
       v make CFLAGS="-O3 -Wall -Werror -Wshadow -pipe" clean check || exit 1
     fi
+    ls /home/travis/build/artb1sh/carbon-c-relay
+    ls
+    pwd
     exit 0  # all is good here
 
 env:
